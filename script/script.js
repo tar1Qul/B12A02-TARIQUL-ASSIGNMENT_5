@@ -9,3 +9,49 @@ getElement("card-container").addEventListener("click", function (e) {
         getElement("hart-count").innerText = currentHartCount;
     }
 });
+
+getElement("card-container").addEventListener("click", function (e) {
+    if (e.target.className.includes("call-btn")) {
+        const callBtn = e.target;
+
+        const coinCount = getElement("coin-count").innerText;
+        if (coinCount <= 0) {
+            alert("❌ আপনার পর্যাপ্ত কয়েন নেই! কল করতে কমপক্ষে ২০ কয়েন লাগবে।");
+            return;
+        }
+
+        const cardTitle1 = callBtn.parentNode.parentNode.children[1].innerText;
+
+        const cardTitle2 = callBtn.parentNode.parentNode.children[2].innerText;
+
+        const phoneNumber = callBtn.parentNode.parentNode.children[3].innerText;
+
+        alert(`
+      📞 Calling ${cardTitle2} ${phoneNumber}...
+        `);
+
+        const currentCoinCount = Number(coinCount) - 20;
+
+        getElement("coin-count").innerText = currentCoinCount;
+
+        const callHistoryContainer = getElement("call-history-container");
+
+        const currentDate = new Date().toLocaleTimeString();
+
+        const newCallHistory = document.createElement("div");
+
+        newCallHistory.innerHTML = `
+                         <div
+                class="flex items-center justify-between bg-[#fafafa] p-4 rounded-lg"
+              >
+                <div>
+                  <h3 class="text-lg font-semibold">${cardTitle1}</h3>
+                  <p class="text-lg font-medium text-[#5c5c5c]">${phoneNumber}</p>
+                </div>
+                <p class="text-lg font-medium">${currentDate}</p>
+              </div> 
+    
+    `;
+        callHistoryContainer.append(newCallHistory);
+    }
+});
