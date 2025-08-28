@@ -2,6 +2,7 @@ function getElement(id) {
     return (element = document.getElementById(id));
 }
 
+// function for heart icons
 getElement("card-container").addEventListener("click", function (e) {
     if (e.target.className.includes("cart-love")) {
         const hartCount = getElement("hart-count").innerText;
@@ -10,6 +11,7 @@ getElement("card-container").addEventListener("click", function (e) {
     }
 });
 
+// function for Call Buttons & Call History
 getElement("card-container").addEventListener("click", function (e) {
     if (e.target.className.includes("call-btn")) {
         const callBtn = e.target;
@@ -56,11 +58,13 @@ getElement("card-container").addEventListener("click", function (e) {
     }
 });
 
+// function for history clear button
 getElement("history-clear").addEventListener("click", function () {
     const callHistoryContainer = getElement("call-history-container");
     callHistoryContainer.innerHTML = "";
 });
 
+// Function for coppy button
 getElement("card-container").addEventListener("click", function (e) {
     if (e.target.className.includes("copy-btn")) {
         const copyBtn = e.target;
