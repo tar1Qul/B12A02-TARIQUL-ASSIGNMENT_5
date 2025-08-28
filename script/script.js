@@ -18,7 +18,7 @@ getElement("card-container").addEventListener("click", function (e) {
 
         const coinCount = getElement("coin-count").innerText;
         if (coinCount <= 0) {
-            alert("❌ আপনার পর্যাপ্ত কয়েন নেই! কল করতে কমপক্ষে ২০ কয়েন লাগবে।");
+            alert("❌ You don’t have sufficient coins! You need at least 20 coins to make a call.");
             return;
         }
 
