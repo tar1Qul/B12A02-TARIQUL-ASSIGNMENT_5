@@ -55,3 +55,8 @@ getElement("card-container").addEventListener("click", function (e) {
         callHistoryContainer.append(newCallHistory);
     }
 });
+
+getElement("history-clear").addEventListener("click", function () {
+    const callHistoryContainer = getElement("call-history-container");
+    callHistoryContainer.innerHTML = "";
+});
